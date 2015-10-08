@@ -1,4 +1,4 @@
 require "param_capturable"
-class CaptureParams
+# class CaptureParams
   include ParamCapturable
-end
+# end
