@@ -33,7 +33,7 @@ Add this migration and run it to create the table for capturing your params data
 class CreateIncomingParams < ActiveRecord::Migration
   def up
     create_table :incoming_params do |t|
-  	## Adding fields for table incoming_params
+  	# Adding fields for table incoming_params
       t.userstamps
       t.timestamps      
       t.string    :incoming_paramable_type,     :null => false
@@ -41,7 +41,7 @@ class CreateIncomingParams < ActiveRecord::Migration
       t.text      :source_data,                 :null => false
   	end
     
-    ## Adding constraints for incoming_params
+    # Adding constraints for incoming_params
       sql_fk = %Q(CREATE INDEX ip_ip_type_ip_id_idx ON incoming_params using btree (incoming_paramable_type, incoming_paramable_id);)    
       execute sql_fk
   end
