@@ -1,5 +1,5 @@
 module ParamCapturable
-  def self.included(base) #:nodoc:
+  def self.included(base)
     super
 
     base.extend(ClassMethods)
@@ -26,12 +26,10 @@ module ParamCapturable
     
     def make_incoming_param
       if !self.incoming_params.blank? and !!Object.const_get(:IncomingParam)
-        puts "self: #{self.inspect}"
         ip = IncomingParam.new
         ip.source_data = self.incoming_params
         ip.incoming_paramable = self
         ip.save!
-        # raise "makes it inside logic"
       end
     end
   end
@@ -40,11 +38,3 @@ end
 
 ActiveRecord::Base.send(:include, ParamCapturable) if defined?(ActiveRecord)
 
-
-
-# s = State.new
-# s.name = "HOUSTON"
-# s.code = "HOU"
-# s.country_id = 1
-# s.incoming_params = "test"
-# s.save!
