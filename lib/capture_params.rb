@@ -1,4 +1,4 @@
 require "param_capturable"
 # class CaptureParams
-  include ParamCapturable
+  # include ParamCapturable
 # end
